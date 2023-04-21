@@ -1,0 +1,95 @@
+{{#if logIn}}
+<!-- Login-details -->
+<div class="top-header">
+    <div id="contact-details-2">
+        <ul>
+
+            <li>
+                <a href="#"><img src="../images/logo-facebook.png" alt="" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="../images/logo-insta.png" alt="" /></a>
+            </li>
+            <li>
+                <a class="tel" href="tel:2610123456">
+                    <img src="../images/logo-phone.png" alt="" />
+                    <span>2610 123456</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="contact-details-2">
+        <!--<p>Welcome, <a href="#" id="user">Log In</a> .</p>-->
+        <ul>
+
+            <li>
+                <a href="../login" id="user"><span> {{userEmail}}</span></a>
+            </li>
+            <li>
+                <a href="../cart" id="cart">
+                    <img src="../images/cart-icon.png" alt="" />
+                    <span> Καλάθι<span id="n_items"><b> ({{cartSize userCart}}</span>)</b></span>
+                </a>
+            </li>
+            <li>
+
+            </li>
+        </ul>
+    </div>
+
+</div>
+<!-- End Login-details -->
+
+{{else}}
+
+<!-- Login-details -->
+<div class="top-header">
+    <div id="contact-details-2">
+        <ul>
+
+            <li>
+                <a href="#"><img src="../images/logo-facebook.png" alt="" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="../images/logo-insta.png" alt="" /></a>
+            </li>
+            <li>
+                <a class="tel" href="tel:2610123456">
+                    <img src="../images/logo-phone.png" alt="" />
+                    <span>2610 123456</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="contact-details-2">
+        <!--<p>Welcome, <a href="#" id="user">Log In</a> .</p>-->
+        <ul>
+
+            <li>
+                <a href="../login" id="user"><span> Log In</span></a>
+            </li>
+            <li>
+                <a href="" id="cart" onclick="cartAlert()">
+                    <img src="../images/cart-icon.png" alt="" />
+                    <span> Καλάθι</span>
+                </a>
+            </li>
+            <li>
+
+            </li>
+        </ul>
+    </div>
+
+</div>
+<!-- End Login-details -->
+<script>
+    function cartAlert() {
+
+        alert("\n\n Συνθεθείτε για να διαχειριστείτε το καλάθι σας! \n\n ");
+    }
+</script>
+
+
+{{/if}}

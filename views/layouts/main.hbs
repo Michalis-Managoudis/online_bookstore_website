@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore 2021</title>
+    <link rel="shortcut icon" href="../images/favicon.png" />
+    <link rel="stylesheet" href="../css/style.css" type="text/css" />
+
+</head>
+
+<body>
+    
+    
+    {{> top-header}}
+
+    <!-- Header -->
+    <div class="header">
+        <!--<div id="logo"><h1><a href="#">BestSeller</a></h1><span><a href="#">free css template</a></span></div>-->
+        <div class="logo"><a href="home"><img src="../images/logo2.png" alt="" /><a /></div>
+        <!-- Navigation -->
+        <div class="top-nav">
+            <ul>
+                <li><a href="../home">Αρχική</a></li>
+                <li><a href="../products">Βιβλία</a></li>
+                <li><a href="../shipping">Τρόποι Αποστολής</a></li>
+                <li><a href="../payment">Τρόποι Πληρωμής</a></li>
+                <li><a href="../info">Σχετικά με εμάς</a></li>
+                <li>
+                    <form class="search-box" action="../find" method="POST">
+                        <input class="search-box2" type="text" name="bookT" placeholder="Αναζήτηση με Τίτλο">
+                        <input type="image" class="search-icon-img" src="../images/search-icon.png" border="0" alt="Submit" />
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div>&nbsp;</div>
+    </div>
+    
+    <!-- End Header -->
+
+
+    {{{body}}}
+
+
+    <!-- Footer -->
+    <div class="footer">
+        <div>
+            <h5>Επικοινωνία</h5>
+            <hr>
+            <ul>
+                <li>Δευτέρα-Παρασκευή: 08:30-16:30</li>
+
+                <li><a class="tel" href="tel: 2610123456">
+                        <img src="../images/logo-phone.png" alt="" />
+                        <span>2610 123456</span>
+                    </a></li>
+                <li><a href="mailto: sales@bookstore.gr">
+                        <p>sales@bookstore.gr</p>
+                    </a></li>
+                <li><a href="#"><img src="../images/logo-facebook.png" alt="" />Βρείτε μας στο Facebook</a></li>
+                <li><a href="#"><img src="../images/logo-insta.png" alt="" />Βρείτε μας στο Instagram</a></li>
+            </ul>
+        </div>
+        <div>
+            <h5>Πληροφορίες</h5>
+            <hr>
+            <ul>
+                <li><a href="../shipping">Τρόποι Αποστολής</a></li>
+                <li><a href="../payment">Τρόποι Πληρωμής</a></li>
+                <li><a href="../info">Σχετικά με εμάς</a></li>
+                <li><a href="#">Όροι και Προυποθέσεις</a></li>
+                <li><a href="#">Πολιτική απορρήτου</a></li>
+            </ul>
+
+        </div>
+        <div>
+            <h5>Ο λογαριασμός μου</h5>
+            <hr>
+            <ul>
+                <li><a href=#>Λογαριασμός</a></li>
+                <li><a href="../login">Σύνδεση</a></li>
+                <li><a href='../create-account'>Εγγραφή</a></li>
+                <li><a href='../cart'>Καλάθι</a></li>
+            </ul>
+        </div>
+        <div>
+            <h6>Εγγραφή στο newsletter</h6>
+            <hr>
+            <ul>
+                <li>
+                    <form class="form" action="#">
+                        <p>
+                            <input class="input1" type="text" id="newsletter" placeholder="example@email.com">
+                        </p>
+
+                    </form>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+    <div style="background-color: #898a8b; padding-left: 110px;">
+        <p>
+            (C) Copyrights: Marios Tepelenas Angelakopoulos 1059502, Mixalis Managoudis 1059398 - Project Web
+            Programming, University of Patas, Department of Electrical and Computer Engineering: Online Bookstore
+        </p>
+    </div>
+</body>
+
+</html>

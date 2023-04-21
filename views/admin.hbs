@@ -1,0 +1,141 @@
+<!-- PAGE CONTENT -->
+
+<div class="account-main">
+    <h2>Διαχείριση Βιβλιοπωλείου</h2>
+    <hr>
+    <br>
+    <div id="options">
+        <ul>
+            <li>
+                <p>
+                    <a class="button" href='/admin-add'>Προσθήκη Βιβλίου</a>
+                </p>
+            </li>
+            <li>
+                <form class="form" action="../admin-update" method="POST">
+                    <p style="padding-top:0px; padding-left: 40px;">
+                        <input class="button" type="submit" value="Ενημέρωση">
+                    </p>
+                    <p class="search-update">
+                        <label>ISBN: (Αναζήτηση)
+                            <br>
+                            <input class="input1" type="number" min="1000000000000" max="9999999999999" name="ISBN"
+                                placeholder="ISBN">
+                        </label>
+                    </p>
+
+
+                </form>
+            </li>
+            <li>
+                <a href="../logout" class="button">Αποσύνδεση</a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<div class="admin-main">
+
+    <div class="admin-orders">
+        <h3>Παραγγελίες</h3>
+        <div class="orderScroll">
+            <ul>
+                <li>
+                    <div class='order-item'>
+                        <div class='order-item2'>
+                            <span>ID παραγγελίας</span>
+                            <span>
+                                ID χρήστη
+                            </span>
+                            <span>
+                                Ημ. Παραγγελίας
+                            </span>
+                            <span>
+                                ID βιβλίων
+                            </span>
+                            <span>
+                                Κόστος
+                            </span>
+                            <span>
+                                Πληρωμή μέσω
+                            </span>
+                            <span>
+                                Διεύθυνση
+                            </span>
+                            <span>
+                                Πόλη
+                            </span>
+                            <span>
+                                ΤΚ
+                            </span>
+                            <span>
+                                Τηλέφωνο
+                            </span>
+                        </div>
+                    </div>
+                </li>
+                {{#each userOrders}}
+                <li>
+                    <div class='order-item'>
+                        <div class='order-item2'>
+
+                            <span>{{this.id}}</span>
+
+                            <span>
+                                {{this.userid}}
+                            </span>
+                            <span id='{{this.created_at}}' class='orderDate'>
+                                {{this.created_at}}
+                            </span>
+                            <span>
+                                {{this.bookid}}
+                            </span>
+                            <span>
+                                {{this.finalPrice}}
+                            </span>
+                            <span>
+                                {{this.pay}}
+                            </span>
+                            <span>
+                                {{this.adress}}
+                            </span>
+                            <span>
+                                {{this.city}}
+                            </span>
+                            <span>
+                                {{this.postcode}}
+                            </span>
+                            <span>
+                                {{this.phone}}
+                            </span>
+                        </div>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- END PAGE CONTENT -->
+
+<script>
+    let currDate = new Date();
+    // split Date() for json format
+    let ymd = currDate.toISOString().slice(0, 10);
+    
+    let currMonth = ymd.split('-')[1];
+    const allDates = document.querySelectorAll('.orderDate');
+    console.log(allDates[0].innerText.split('-')[1]);
+    for(let i=0; i<allDates.length; i++){
+        console.log(allDates[i].innerText.split('-')[1]);
+          console.log(currMonth)
+        if(allDates[i].innerText.split('-')[1]==currMonth){
+            console.log(allDates[i].innerText);
+            let newnew = document.getElementById(allDates[i].innerText).parentElement;
+            newnew.setAttribute("style", "background-color: rgb(245, 242, 214);");
+
+        }
+    }
+
+
+</script>

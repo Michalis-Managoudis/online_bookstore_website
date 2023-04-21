@@ -1,0 +1,194 @@
+{{#if exists}}
+<script>alert("\n\n Το βιβλίο δεν πληροί τις προυποθέσεις για εισαγωγή στη βάση ή υπάρχει ήδη!\n\n ");</script>
+<div class="createacc">
+    <h3 class="add-book">Προσθήκη βιβλίου</h3>
+    <form class="form" action='../admin-add' method="POST">
+        <fieldset>
+            <p>
+                <label>Τίτλος βιβλίου:
+                    <br>
+                    <input class="input1" type="text" name="title" placeholder="Υποχρεωτικό" value={{this.title}}>
+                </label>
+            </p>
+            <p>
+                <label>ISBN:
+                    <br>
+                    <input class="input1" type="number" min="1000000000000" max="9999999999999" name="ISBN"
+                        placeholder=">13 αριθμούς χωρίς κενό" value = {{this.ISBN}}>
+                </label>
+            </p>
+            <p>
+                <label>Συγραφείς:
+                    <br>
+                    <input class="input1" type="text" name="authors" placeholder="Διαχωρισμός με , για >1" value={{this.authors}}>
+                </label>
+            </p>
+            <p>
+                <label>Έτος κυκλοφορίας:
+                    <br>
+                    <input class="input1" type="number" min="1500" max="2022" name="year" value = {{this.publishedYear}}>
+                </label>
+            </p>
+            <p>
+                <label>Αριθμός σελίδων:
+                    <br>
+                    <input class="input1" type="number" name="pages" placeholder="Σελίδες" value = {{this.pageCount}}>
+                </label>
+            </p>
+            <p>
+                <label>Περιγραφή:
+                    <br>
+                    <textarea class="input1" rows="3" cols="40" name="description" placeholder="Περιγραφή" value = {{this.description}}></textarea>
+                </label>
+            </p>
+            <p>
+                <label>Κατηγορίες:
+                    <br>
+                    <input class="input1" type="text" name="categories" placeholder="Διαχωρισμός με , για >1" value = {{this.categories}}>
+                </label>
+            </p>
+            <p>
+                <label>Γλώσσα:
+                    <br>
+                    <input class="input1" type="text" name="language" placeholder="Γλώσσα" value={{this.language}}>
+                </label>
+            </p>
+            <p>
+                <label>Εκδότης:
+                    <br>
+                    <input class="input1" type="text" name="publisher" placeholder="" value={{this.publisher}}>
+                </label>
+            </p>
+            <p>
+                <label>Διαστάσεις:
+                    <br>
+                    <input class="input1" type="text" name="dimensions" placeholder =" Μορφή: 14 x 21" value={{this.dimensions}}>
+                </label>
+            </p>
+            <p>
+                <label>Εξώφυλλο:
+                    <br>
+                    <input class="input1" type="text" name="cover" value={{this.cover}}>
+                </label>
+            </p>
+            <p>
+                <label>Αριθμός Αντιτύπων:
+                    <br>
+                    <input class="input1" type="number" name="status" value={{this.status}}>
+                </label>
+            </p>
+            <p>
+                <label>Τιμή:
+                    <br>
+                    <input class="input1" type="text" name="price" placeholder="Μορφή: 16.32" value={{this.price}}>
+                </label>
+            </p>
+            <p>
+                    <label>Έκπτωση:
+                        <br>
+                        <input class="input1" type="number" name="discount" placeholder="Μορφή: 30" value={{this.discount}}>
+                    </label>
+                </p>
+            <p>
+                <input class="button" type="submit" value="Προσθήκη">
+            </p>
+        </fieldset>
+    </form>
+</div>
+{{else}}
+<div class="createacc">
+    <h3 class="add-book">Προσθήκη βιβλίου</h3>
+    <form class="form" action='../admin-add' method="POST">
+        <fieldset>
+            <p>
+                <label>Τίτλος βιβλίου:
+                    <br>
+                    <input class="input1" type="text" name="title" placeholder="Υποχρεωτικό">
+                </label>
+            </p>
+            <p>
+                <label>ISBN:
+                    <br>
+                    <input class="input1" type="number" min="1000000000000" max="9999999999999" name="ISBN"
+                        placeholder=">13 αριθμούς χωρίς κενό">
+                </label>
+            </p>
+            <p>
+                <label>Συγραφείς:
+                    <br>
+                    <input class="input1" type="text" name="authors" placeholder="Διαχωρισμός με , για >1">
+                </label>
+            </p>
+            <p>
+                <label>Έτος κυκλοφορίας:
+                    <br>
+                    <input class="input1" type="number" min="1500" max="2022" name="year" >
+                </label>
+            </p>
+            <p>
+                <label>Αριθμός σελίδων:
+                    <br>
+                    <input class="input1" type="number" name="pages" placeholder="Σελίδες">
+                </label>
+            </p>
+            <p>
+                <label>Περιγραφή:
+                    <br>
+                    <textarea class="input1" rows="3" cols="40" name="description" placeholder="Περιγραφή"></textarea>
+                </label>
+            </p>
+            <p>
+                <label>Κατηγορίες:
+                    <br>
+                    <input class="input1" type="text" name="categories" placeholder="Διαχωρισμός με , για >1">
+                </label>
+            </p>
+            <p>
+                <label>Γλώσσα:
+                    <br>
+                    <input class="input1" type="text" name="language" placeholder="Γλώσσα" value="Ελληνικά">
+                </label>
+            </p>
+            <p>
+                <label>Εκδότης:
+                    <br>
+                    <input class="input1" type="text" name="publisher" placeholder="">
+                </label>
+            </p>
+            <p>
+                <label>Διαστάσεις:
+                    <br>
+                    <input class="input1" type="text" name="dimensions" placeholder =" Μορφή: 14 x 21">
+                </label>
+            </p>
+            <p>
+                <label>Εξώφυλλο:
+                    <br>
+                    <input class="input1" type="text" name="cover" value="Μαλακό εξώφυλλο">
+                </label>
+            </p>
+            <p>
+                <label>Αριθμός Αντιτύπων:
+                    <br>
+                    <input class="input1" type="number" name="status" value="1000">
+                </label>
+            </p>
+            <p>
+                <label>Τιμή:
+                    <br>
+                    <input class="input1" type="text" name="price" placeholder="Μορφή: 16.32">
+                </label>
+            </p>
+            <p>
+                    <label>Έκπτωση:
+                        <br>
+                        <input class="input1" type="number" name="discount" placeholder="Μορφή: 30">
+                    </label>
+                </p>
+            <p>
+                <input class="button" type="submit" value="Προσθήκη">
+            </p>
+        </fieldset>
+    </form>
+</div>
+{{/if}}

@@ -1,0 +1,100 @@
+{{#if logIn}}
+<!-- PAGE CONTENT -->
+<div class="bookshell">
+      <div class="disp-product" id="grid-img" style="grid-area: img">
+            <!-- New Releases -->
+
+            <img src='../images/{{curBook.id}}.jpg'>
+      </div>
+      <div class="disp-product" id="grid-buy" style="grid-area: buy">
+            <li>
+                  <h4>{{curBook.title}}</h4>
+            </li>
+            <li><b>Συγγραφέας:</b>
+                  {{curBook.authors}}
+            </li>
+            <li><b>ISBN:</b> {{curBook.ISBN}} </li>
+            {{#if curBook.status}}
+            <li><b>Διαθεσιμότητα:</b> Ναι </li>
+            {{else}}
+            <li><b>Διαθεσιμότητα:</b> Όχι </li>
+            {{/if}}
+            <li><b>Κωδικός Προϊόντος:</b>
+                  {{curBook.id}}
+            </li>
+            {{#if curBook.discount}}
+            <li>
+                  <p><b>Τελική Τιμή:</b> {{calculateFinalPrice curBook.price curBook.discount}}€ <span
+                              id='discount'>-{{curBook.discount}}%</span></p>
+            </li>
+            <li><del><small>Αρχική Τιμή:</del> </small>{{curBook.price}}€ </li>
+            {{else}}
+            <li><b>Τιμή:</b> {{curBook.price}}€ </li>
+            {{/if}}
+            <li><a href='../cart/{{curBook.id}}' class="button" onclick='added()'> Προσθήκη στο Καλάθι</a></li>
+      </div>
+      <div class="disp-product" id="grid-det" style="grid-area: det">
+            <h2>Λεπτομέρειες</h2>
+            <hr> <br>
+            <li><b>Περιγραφή:</b> <br>{{curBook.description}}</li><br>
+            <li><b>Κατηγορίες:</b> {{curBook.categories}}</li>
+            <li><b>Γλώσσα:</b> {{curBook.language}} </li>
+            <li><b>Σελίδες:</b> {{curBook.pageCount}} </li>
+            <li><b>Διαστάσεις:</b> {{curBook.dimensions}} </li>
+            <li><b>Εξώφυλλο:</b> {{curBook.cover}} </li>
+            <li><b>Εκδόσεις:</b> {{curBook.publisher}} </li>
+            <li><b>Έτος Έκδοσης:</b> {{curBook.publishedYear}} </li>
+      </div>
+</div>
+<script>
+    function added() {
+        alert("Προστέθηκε στο καλάθι!");
+    }
+</script>
+<!-- END PAGE CONTENT -->
+{{else}}
+<!-- PAGE CONTENT -->
+<div class="bookshell">
+      <div class="disp-product" id="grid-img" style="grid-area: img">
+            <!-- New Releases -->
+
+            <img src='../images/{{curBook.id}}.jpg'>
+      </div>
+      <div class="disp-product" id="grid-buy" style="grid-area: buy">
+            <li>
+                  <h4>{{curBook.title}}</h4>
+            </li>
+            <li><b>Συγγραφέας:</b>
+                  {{curBook.authors}}
+            </li>
+            <li><b>ISBN:</b> {{curBook.ISBN}} </li>
+            <li><b>Διαθεσιμότητα:</b> {{curBook.status}} </li>
+            <li><b>Κωδικός Προϊόντος:</b>
+                  <curBook class="id"></curBook>
+            </li>
+            {{#if curBook.discount}}
+            <li>
+                  <p><b>Τελική Τιμή:</b> {{calculateFinalPrice curBook.price curBook.discount}}€ <span
+                              id='discount'>-{{curBook.discount}}%</span></p>
+            </li>
+            <li><del><small>Αρχική Τιμή:</del> </small>{{curBook.price}}€ </li>
+            {{else}}
+            <li><b>Τιμή:</b> {{curBook.price}}€ </li>
+            {{/if}}
+            <li><a href='' class='button' id={{curBook.id}} onclick="cartAlert()"> Προσθήκη στο Καλάθι</a></li>
+      </div>
+      <div class="disp-product" id="grid-det" style="grid-area: det">
+            <h2>Λεπτομέρειες</h2>
+            <hr> <br>
+            <li><b>Περιγραφή:</b> <br>{{curBook.description}}</li><br>
+            <li><b>Κατηγορίες:</b> {{curBook.categories}}</li>
+            <li><b>Γλώσσα:</b> {{curBook.language}} </li>
+            <li><b>Σελίδες:</b> {{curBook.pageCount}} </li>
+            <li><b>Διαστάσεις:</b> {{curBook.dimensions}} </li>
+            <li><b>Εξώφυλλο:</b> {{curBook.cover}} </li>
+            <li><b>Εκδόσεις:</b> {{curBook.publisher}} </li>
+            <li><b>Έτος Έκδοσης:</b> {{curBook.publishedYear}} </li>
+      </div>
+</div>
+<!-- END PAGE CONTENT -->
+{{/if}}

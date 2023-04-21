@@ -1,0 +1,97 @@
+<!-- PAGE CONTENT -->
+<div id="main" class="shell">
+	<!-- Sidebar -->
+
+	<!-- End Sidebar -->
+
+	<!-- Content -->
+	<div id="content">
+		<!-- Best-sellers -->
+		<div class="products" >
+			<h3>Προσφορές</h3>
+			<ul>
+				 {{#each (offers db)}}
+				<li id={{this.id}}>
+                    <div class="product">
+                        <a href="disp-product/{{this.id}}" class="info">
+                            <img src='images/{{this.id}}.jpg' alt="" />
+                            <span class="book-name"> {{this.title}}</span>
+                            <span class="author"> {{this.authors}}</span>
+                            {{#if this.discount}}
+                            <span class="discount2"> -{{this.discount}}%</span>
+
+                            {{/if}}
+                        </a>
+
+                        <a href='../cart/{{this.id}}' class="buy-btn" onclick='added()'>ΠΡΟΣΘΗΚΗ
+
+                            <span class="price">{{{splitPriceFinal this.price this.discount}}} </span>
+                        </a>
+                    </div>
+                </li>
+				{{/each}}
+			</ul>
+		</div>
+		&nbsp;
+		<!-- End Best-sellers -->
+
+		<!-- New Releases -->
+		<div class="products">
+			<h3>Νέες Κυκλοφορίες</h3>
+			<ul>
+				{{#each (newReleases db)}}
+				<li id={{this.id}}>
+                    <div class="product">
+                        <a href="disp-product/{{this.id}}" class="info">
+                            <img src='images/{{this.id}}.jpg' alt="" />
+                            <span class="book-name"> {{this.title}}</span>
+                            <span class="author"> {{this.authors}}</span>
+                            {{#if this.discount}}
+                            <span class="discount2"> -{{this.discount}}%</span>
+
+                            {{/if}}
+                        </a>
+
+                        <a href='../cart/{{this.id}}' class="buy-btn" onclick='added()'>ΠΡΟΣΘΗΚΗ
+
+                            <span class="price">{{{splitPriceFinal this.price this.discount}}} </span>
+                        </a>
+                    </div>
+                </li>
+				{{/each}}
+			</ul>
+			<!-- End Products -->
+		</div>
+		&nbsp;
+		<!--Trending -->
+		<div class="products">
+			<h3>Best-Seller</h3>
+			<ul>
+				{{#each (bestSeller db)}}
+				<li id={{this.id}}>
+                    <div class="product">
+                        <a href="disp-product/{{this.id}}" class="info">
+                            <img src='images/{{this.id}}.jpg' alt="" />
+                            <span class="book-name"> {{this.title}}</span>
+                            <span class="author"> {{this.authors}}</span>
+                            {{#if this.discount}}
+                            <span class="discount2"> -{{this.discount}}%</span>
+
+                            {{/if}}
+                        </a>
+
+                        <a href='../cart/{{this.id}}' class="buy-btn" onclick='added()'>ΠΡΟΣΘΗΚΗ
+
+                            <span class="price">{{{splitPriceFinal this.price this.discount}}} </span>
+                        </a>
+                    </div>
+                </li>
+				{{/each}}
+			</ul>
+			<!-- End Products -->
+		</div>
+		&nbsp;
+	</div>
+	<!-- End Content -->
+</div>
+<!-- END PAGE CONTENT -->

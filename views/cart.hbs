@@ -1,0 +1,206 @@
+{{#if wrongData}}
+<div class="cartshell">
+    <div class="cart" id="grid-det" style="grid-area: det">
+        {{#with userInfo}}
+        <h3>Στοιχεία παραγγελίας</h3>
+        <form class="form" action="../order" method="post">
+            <br><br>
+            <label for="name1">Όνοματεπώνυμο</label>
+            <br>
+            <input class="input2" type="text" id="name1" name="first_name" placeholder="Όνομα" value={{firstName}}>
+            <input class="input2" type="text" name="last_name" placeholder="Επώνυμο" value='{{lastName}}'>
+            <br><br>
+            <label for="tel">Τηλέφωνο</label>
+            <br>
+            <input class="input2" type="number" name="tel" placeholder="Τηλέφωνο" value='{{phone}}'>
+            <br><br>
+            <label for="mail">E-mail</label>
+            <br>
+            <input class="input2" type="text" name="mail" placeholder="email" value='{{email}}'>
+            <br><br>
+            <label for="adress">Διεύθυνση:</label>
+            <br>
+            <input class="input2" type="text" name="address" placeholder="Οδός και αριθμός" value={{address}}>
+            <br>
+            <input class="input2" type="text" name="city" placeholder="Πόλη" value='{{city}}'>
+            <input class="input2" type="number" name="postcode" placeholder="Ταχυδρομικός κώδικας" value='{{postcode}}'>
+            <br><br>
+            {{/with}}
+            <label>Τρόπος πληρωμής</label>
+            <br>
+            <select id="cert" name="pay">
+                <option value="card">Με κάρτα</option>
+                <option value="antikatavoli">Αντικαταβολή</option>
+                <option value="bank">Κατάθεση σε τράπεζα</option>
+            </select>
+            <br>
+            <br>
+            <input id="prodId" type="hidden" name='products' value=''>
+            <input id="prodPrice" type="hidden" name='finalPrice' value=''>
+            <input class="button" type="submit" value="Ολοκλήρωση Παραγγελίας">
+
+
+        </form>
+    </div>
+    <div class="cart" id="grid-buy" style="grid-area: buy">
+        <h3>Επισκόπηση Παραγγελίας</h3>
+        <div class="orderScroll">
+            <ul>
+
+                {{#each userBooks}}
+                <li id={{this.id}}>
+                    <div class='order-item'>
+                        <a href='../delete/{{this.id}}' style="color:red; font-size: 120%; font-style:normal"><b>X</b>
+                            &nbsp;</a>
+                        <a href='disp-product/{{this.id}}'>
+                            <img src="../images/{{this.id}}.jpg" alt="" />
+                        </a>
+                        <span>
+
+                            <p>{{this.title}}</p> {{this.authors}}
+
+                        </span>
+                        <span id="cartSum"><b>{{calculateFinalPrice this.price this.discount}}</b></span>
+
+                    </div>
+                </li>
+                {{/each}}
+
+            </ul>
+        </div>
+        <br>
+        <h4>Σύνολο:&nbsp; <span id="sumPrice"></span>€</h4>
+    </div>
+
+</div>
+</div>
+<script>
+    let sumPrice = 0;
+    let allIDs = '';
+    const spanPrice = document.querySelectorAll('#cartSum');
+    if (spanPrice.length > 0) {
+        for (let i = 0; i < spanPrice.length; i++) {
+            sumPrice += parseFloat(spanPrice[i].innerText);
+
+
+        }
+    }
+    const liID = document.querySelectorAll('.orderScroll li');
+    if (liID.length > 0) {
+        for (let i = 0; i < liID.length; i++) {
+            allIDs += liID[i].id + '-';
+            console.log(parseFloat(liID[i].id));
+
+        }
+    }
+    const spanSumPrice = document.getElementById('sumPrice');
+    spanSumPrice.innerText = sumPrice.toFixed(2);
+    document.getElementById('prodPrice').setAttribute("value", sumPrice.toFixed(2));
+    document.getElementById('prodId').setAttribute("value", allIDs);
+
+alert("\n\n Βεβαιωθείτε ότι τα στοιχεία σας επαρκούν και ότι το καλάθι σας δεν είναι άδειο!  \n\n ");
+</script>
+{{else}}
+<!-- PAGE CONTENT -->
+<div class="cartshell">
+    <div class="cart" id="grid-det" style="grid-area: det">
+        {{#with userInfo}}
+        <h3>Στοιχεία παραγγελίας</h3>
+        <form class="form" action="../order" method="post">
+            <br><br>
+            <label for="name1">Όνοματεπώνυμο</label>
+            <br>
+            <input class="input2" type="text" id="name1" name="first_name" placeholder="Όνομα" value={{firstName}}>
+            <input class="input2" type="text" name="last_name" placeholder="Επώνυμο" value='{{lastName}}'>
+            <br><br>
+            <label for="tel">Τηλέφωνο</label>
+            <br>
+            <input class="input2" type="number" name="tel" placeholder="Τηλέφωνο" value='{{phone}}'>
+            <br><br>
+            <label for="mail">E-mail</label>
+            <br>
+            <input class="input2" type="text" name="mail" placeholder="email" value='{{email}}'>
+            <br><br>
+            <label for="adress">Διεύθυνση:</label>
+            <br>
+            <input class="input2" type="text" name="address" placeholder="Οδός και αριθμός" value={{address}}>
+            <br>
+            <input class="input2" type="text" name="city" placeholder="Πόλη" value='{{city}}'>
+            <input class="input2" type="number" name="postcode" placeholder="Ταχυδρομικός κώδικας" value='{{postcode}}'>
+            <br><br>
+            {{/with}}
+            <label>Τρόπος πληρωμής</label>
+            <br>
+            <select id="cert" name="pay">
+                <option value="card">Με κάρτα</option>
+                <option value="antikatavoli">Αντικαταβολή</option>
+                <option value="bank">Κατάθεση σε τράπεζα</option>
+            </select>
+            <br>
+            <br>
+            <input id="prodId" type="hidden" name='products' value=''>
+            <input id="prodPrice" type="hidden" name='finalPrice' value=''>
+            <input class="button" type="submit" value="Ολοκλήρωση Παραγγελίας">
+
+
+        </form>
+    </div>
+    <div class="cart" id="grid-buy" style="grid-area: buy">
+        <h3>Επισκόπηση Παραγγελίας</h3>
+        <div class="orderScroll">
+            <ul>
+
+                {{#each userBooks}}
+                <li id={{this.id}}>
+                    <div class='order-item'>
+                        <a href='../delete/{{this.id}}' style="color:red; font-size: 120%; font-style:normal"><b>X</b>
+                            &nbsp;</a>
+                        <a href='disp-product/{{this.id}}'>
+                            <img src="../images/{{this.id}}.jpg" alt="" />
+                        </a>
+                        <span>
+
+                            <p>{{this.title}}</p> {{this.authors}}
+
+                        </span>
+                        <span id="cartSum"><b>{{calculateFinalPrice this.price this.discount}}</b></span>
+
+                    </div>
+                </li>
+                {{/each}}
+
+            </ul>
+        </div>
+        <br>
+        <h4>Σύνολο:&nbsp; <span id="sumPrice"></span>€</h4>
+    </div>
+
+</div>
+</div>
+<script>
+    let sumPrice = 0;
+    let allIDs = '';
+    const spanPrice = document.querySelectorAll('#cartSum');
+    if (spanPrice.length > 0) {
+        for (let i = 0; i < spanPrice.length; i++) {
+            sumPrice += parseFloat(spanPrice[i].innerText);
+
+
+        }
+    }
+    const liID = document.querySelectorAll('.orderScroll li');
+    if (liID.length > 0) {
+        for (let i = 0; i < liID.length; i++) {
+            allIDs += liID[i].id + '-';
+            console.log(parseFloat(liID[i].id));
+
+        }
+    }
+    const spanSumPrice = document.getElementById('sumPrice');
+    spanSumPrice.innerText = sumPrice.toFixed(2);
+    document.getElementById('prodPrice').setAttribute("value", sumPrice.toFixed(2));
+    document.getElementById('prodId').setAttribute("value", allIDs);
+
+</script>
+<!-- END PAGE CONTENT -->
+{{/if}}

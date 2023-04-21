@@ -1,0 +1,212 @@
+{{#if logIn}}
+<!-- PAGE CONTENT -->
+<div id="main" class="pshell">
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <ul class="categories">
+
+            <li>
+                <h4>Κατηγορίες</h4>
+                <div id="testScroll">
+                    {{#each (allCategories allBooks)}}
+                    <p><label><input type="checkbox"> {{this}}</label></p>
+                    {{/each}}
+                </div>
+            </li>
+            <li>
+                <h4>Συγγραφέας</h4>
+                <div id="testScroll">
+                    {{#each (allAuthors allBooks)}}
+                    <p><label><input type="checkbox"> {{this}}</label></p>
+                    {{/each}}
+                </div>
+            </li>
+            <li>
+                <h4>Τιμή εώς: </h4>
+                <div id="testScroll">
+                            <p><label><input type="radio" name="price_lim"> 5€</label></p>
+                            <p><label><input type="radio" name="price_lim"> 10€</label></p>
+                            <p><label><input type="radio" name="price_lim"> 15€</label></p>
+                            <p><label><input type="radio" name="price_lim"> 20€</label></p>
+                            <p><label><input type="radio" name="price_lim"> 25€</label></p>
+                            <p><label><input type="radio" name="price_lim"> 30€</label></p>
+                            <p><label><input type="radio" name="price_lim"> >30€</label></p>
+                        </div>
+            </li>
+            <li>
+                <h4>Έτος Έκδοσης</h4>
+                <div id="testScroll">
+                    {{#each (allYears allBooks)}}
+                    <p><label><input type="checkbox"> {{this}}</label></p>
+                    {{/each}}
+                </div>
+            </li>
+            <li>
+                <h4>Εξώφυλλο </h4>
+                <div id="testScroll">
+                    {{#each (allCovers allBooks)}}
+                    <p><label><input type="checkbox"> {{this}}</label></p>
+                    {{/each}}
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- End Sidebar -->
+
+    <!-- Content -->
+    <div id="content">
+        <!-- New Releases -->
+        <h4>
+            <form action="../products">
+                <label for="cert">Ταξινόμηση κατά</label>
+                <select id="cert" name="tax" onChange="this.form.submit()">
+                    <option value="up">Αύξουσα τιμή</option>
+                    <option value="down">Φθίνουσα τιμή</option>
+                    <option value="year">Έτος κυκλοφορίας</option>
+                </select>
+            </form>
+        </h4>
+        <div class="products">
+
+
+            <ul>
+                {{#each allBooks}}
+                {{#if this.status}}
+                <li id={{this.id}}>
+                    <div class="product">
+                        <a href="disp-product/{{this.id}}" class="info">
+                            <img src='images/{{this.id}}.jpg' alt="" />
+                            <span class="book-name"> {{this.title}}</span>
+                            <span class="author"> {{this.authors}}</span>
+                            {{#if this.discount}}
+                            <span class="discount2"> -{{this.discount}}%</span>
+
+                            {{/if}}
+                        </a>
+
+                        <a href='../cart/{{this.id}}' class="buy-btn" onclick='added()'>ΠΡΟΣΘΗΚΗ
+
+                            <span class="price">{{{splitPriceFinal this.price this.discount}}} </span>
+                        </a>
+                    </div>
+                </li>
+                {{/if}}
+                {{/each}}
+            </ul>
+            <!-- End Products -->
+        </div>
+    </div>
+    <!-- End Content -->
+</div>
+<script>
+    function added() {
+        alert("Προστέθηκε στο καλάθι!");
+    }
+</script>
+<!-- END PAGE CONTENT-->
+
+{{else}}
+
+<!-- PAGE CONTENT -->
+<div id="main" class="pshell">
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <ul class="categories">
+
+            <li>
+                <h4>Κατηγορίες</h4>
+                <div id="testScroll">
+                    {{#each (allCategories allBooks)}}
+                    <p><label><input type="checkbox"> {{this}}</label></p>
+                    {{/each}}
+                </div>
+            </li>
+            <li>
+                <h4>Συγγραφέας</h4>
+                <div id="testScroll">
+                    {{#each (allAuthors allBooks)}}
+                    <p><label><input type="checkbox"> {{this}}</label></p>
+                    {{/each}}
+                </div>
+            </li>
+            <li>
+                <h4>Τιμή εώς: </h4>
+                <div id="testScroll">
+                            <p><label><input type="radio" name="price_lim"> 5€</label></p>
+                            <p><label><input type="radio" name="price_lim"> 10€</label></p>
+                            <p><label><input type="radio" name="price_lim"> 15€</label></p>
+                            <p><label><input type="radio" name="price_lim"> 20€</label></p>
+                            <p><label><input type="radio" name="price_lim"> 25€</label></p>
+                            <p><label><input type="radio" name="price_lim"> 30€</label></p>
+                            <p><label><input type="radio" name="price_lim"> >30€</label></p>
+                        </div>
+            </li>
+            <li>
+                <h4>Έτος Έκδοσης</h4>
+                <div id="testScroll">
+                    {{#each (allYears allBooks)}}
+                    <p><label><input type="checkbox"> {{this}}</label></p>
+                    {{/each}}
+                </div>
+            </li>
+            <li>
+                <h4>Εξώφυλλο </h4>
+                <div id="testScroll">
+                    {{#each (allCovers allBooks)}}
+                    <p><label><input type="checkbox"> {{this}}</label></p>
+                    {{/each}}
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- End Sidebar -->
+
+    <!-- Content -->
+    <div id="content">
+        <!-- New Releases -->
+        <h4>
+            <form action="../products">
+                <label for="cert">Ταξινόμηση κατά</label>
+                <select id="cert" name="tax" onChange="this.form.submit()">
+                    <option value="up">Αύξουσα τιμή</option>
+                    <option value="down">Φθίνουσα τιμή</option>
+                    <option value="year">Έτος κυκλοφορίας</option>
+                </select>
+            </form>
+        </h4>
+        <div class="products">
+            <ul>
+                {{#each allBooks}}
+                {{#if this.status}}
+                <li id={{this.id}}>
+                    <div class="product">
+                        <a href="disp-product/{{this.id}}" class="info">
+                            <img src='images/{{this.id}}.jpg' alt="" />
+                            <span class="book-name"> {{this.title}}</span>
+                            <span class="author"> {{this.authors}}</span>
+                            {{#if this.discount}}
+                            <span class="discount2"> -{{this.discount}}%</span>
+
+                            {{/if}}
+                        </a>
+
+                        <a class="buy-btn" onclick='cartAlert()'>ΠΡΟΣΘΗΚΗ
+
+                            <span class="price">{{{splitPriceFinal this.price this.discount}}} </span>
+                        </a>
+                    </div>
+                </li>
+                {{/if}}
+                {{/each}}
+            </ul>
+            <!-- End Products -->
+        </div>
+    </div>
+    <!-- End Content -->
+</div>
+<script>
+    // Using from header cart alert function
+</script>
+<!-- END PAGE CONTENT-->
+
+{{/if}}

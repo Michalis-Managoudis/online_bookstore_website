@@ -1,0 +1,129 @@
+<!-- PAGE CONTENT -->
+<div class="account-main">
+    <h2>Ο λογαριασμός μου</h2>
+    <hr>
+    <br>
+    <div id="options">
+        <ul>
+
+            <li>
+                <a href="../logout" class="button">Αποσύνδεση</a>
+            </li>
+        </ul>
+    </div>
+    <div class="cartshell">
+        <div class="cart" id="grid-det" style="grid-area: det">
+
+            <h3>Τα στοιχεία μου</h3>
+            {{#with userInfo}}
+            <form class="form" action="" method="get">
+                <br><br>
+                <label for="name1">Όνοματεπώνυμο</label>
+                <br>
+                <input class="input2" type="text" id="name1" name="first_name" placeholder="Όνομα" value={{firstName}}>
+                <input class="input2" type="text" name="last_name" placeholder="Επώνυμο" value='{{lastName}}'>
+                <br><br>
+                <label for="tel">Τηλέφωνο</label>
+                <br>
+                <input class="input2" type="number" name="tel" placeholder="Τηλέφωνο" value='{{phone}}'>
+                <br><br>
+                <label for="mail">E-mail</label>
+                <br>
+                <input class="input2" type="text" name="mail" placeholder="email" value='{{email}}'>
+                <br><br>
+                <label for="password">Κωδικός Πρόσβασης</label>
+                <br>
+                <input class="input2" type="password" name="password" placeholder="password" value='{{password}}'>
+
+                <br><br>
+                <label for="adress">Διεύθυνση:</label>
+                <br>
+                <input class="input2" type="text" name="address" placeholder="Οδός και αριθμός" value={{address}}>
+                <br>
+                <input class="input2" type="text" name="city" placeholder="Πόλη" value='{{city}}'>
+                <input class="input2" type="number" name="postcode" placeholder="Ταχυδρομικός κώδικας"
+                    value='{{postcode}}'>
+                <br><br>
+
+                <br>
+                <br>
+                {{/with}}
+                <input class="button" type="submit" value="Αλλαγή στοιχείων">
+
+
+            </form>
+        </div>
+        <div class="cart" id="grid-buy" style="grid-area: buy" >
+            <h3>Οι παραγγελίες μου</h3>
+            <div class="orderScroll" style="max-width: 1000px;">
+                <ul>
+                    <li>
+                        <div class='order-item'>
+                            <div class='order-item2'>
+                                <span>
+                                    Ημ. Παραγγελίας
+                                </span>
+                                <span>
+                                    ID βιβλίων
+                                </span>
+                                <span>
+                                    Κόστος
+                                </span>
+                                <span>
+                                    Πληρωμή μέσω
+                                </span>
+                                <span>
+                                    Διεύθυνση
+                                </span>
+                                <span>
+                                    Πόλη
+                                </span>
+                                <span>
+                                    ΤΚ
+                                </span>
+                                <span>
+                                    Τηλέφωνο
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    {{#each userOrders}}
+                    <li>
+                        <div class='order-item'>
+                            <div class='order-item2'>
+                                <span>
+                                    {{this.created_at}}
+                                </span>
+                                <span>
+                                    {{this.bookid}}
+                                </span>
+                                <span>
+                                    {{this.finalPrice}}
+                                </span>
+                                <span>
+                                    {{this.pay}}
+                                </span>
+                                <span>
+                                    {{this.address}}
+                                </span>
+                                <span>
+                                    {{this.city}}
+                                </span>
+                                <span>
+                                    {{this.postcode}}
+                                </span>
+                                <span>
+                                    {{this.phone}}
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!-- END PAGE CONTENT -->

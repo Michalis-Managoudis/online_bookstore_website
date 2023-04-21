@@ -1,0 +1,66 @@
+{{#if correct}}
+<!-- Content -->
+<div class="createacc">
+	<h3>Σύνδεση στο λογαριασμό σας</h3>
+	<form class="form" action="../login" method="post">
+		<fieldset>
+			<p>
+				<label>Όνομα Χρήστη:
+					<br>
+					<input class="input1" type="text" id="t1" name="email" placeholder="Email">
+				</label>
+			</p>
+			<p>
+				<label>Κωδικός:
+					<br>
+					<input class="input1" type="password" id="t2" name="password" placeholder="Κωδικός">
+				</label>
+			</p>
+			<p>
+				<input class="button" type="submit" value="Σύνδεση">
+			</p>
+			<p>
+				<i>ή αλλιώς </i>
+			</p>
+			<p>
+				<a class="button" href='../create-account'>Δημιουργία λογαριασμού</a>
+			</p>
+		</fieldset>
+	</form>
+	<br>
+
+</div>
+{{else}}
+<!-- Content -->
+<script>alert("\n\n Βεβαιωθείτε ότι τα στοιχεία σας είναι σωστά \n\n ");</script>
+<div class="createacc">
+	<h3>Σύνδεση στο λογαριασμό σας</h3>
+	<form class="form" action="../login" method="post">
+		<fieldset>
+			<p>
+				<label>Όνομα Χρήστη:
+					<br>
+					<input class="input1" type="text" id="t1" name="email" placeholder="Email">
+				</label>
+			</p>
+			<p>
+				<label>Κωδικός:
+					<br>
+					<input class="input1" type="password" id="t2" name="password" placeholder="Κωδικός">
+				</label>
+			</p>
+			<p>
+				<input class="button" type="submit" value="Σύνδεση">
+			</p>
+			<p>
+				<i>ή αλλιώς </i>
+			</p>
+			<p>
+				<a class="button" href='../create-account'>Δημιουργία λογαριασμού</a>
+			</p>
+		</fieldset>
+	</form>
+	<br>
+
+</div>
+{{/if}}

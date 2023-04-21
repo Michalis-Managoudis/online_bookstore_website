@@ -1,0 +1,103 @@
+{{#if isvalid}}
+<!-- PAGE CONTENT -->
+<div class="createacc">
+    <h3>Δημιουργία λογαριασμού</h3>
+    <form class="form" action="../create-account" method="POST">
+        <fieldset>
+            <p>
+                <label>Ονοματεπώνυμο<b><b> *</b></b>:
+                    <br>
+                    <input class="input1" type="text" id="ufname" name="user_fname" placeholder="'Ονομα">
+                </label>
+                <input class="input1" type="text" id="ulname" name="user_lname" placeholder="Επώνυμο">
+            </p>
+
+            <p>
+                <label>Στοιχεία διεύθυνσης:
+                    <br>
+                    <input class="input1" id="uaddress" type="text" name="user_address" placeholder="Οδός και αριθμός">
+                </label>
+                <input class="input1" id="ucity"type="text" name="user_city" placeholder="Πόλη">
+                </br>
+                <input class="input1" id="upostcode" type="text" name="user_postcode" placeholder="Ταχυδρομικός Κώδικας">
+            </p>
+            <p>
+                <label>Στοιχεία επικοινωνίας<b><b> *</b></b>:
+                    <br>
+                    <input class="input1" id="uphone" type="tel" name="user_phone" placeholder="Τηλέφωνο">
+                </label>
+                <input class="input1" id="uemail" type="email" name="user_email" placeholder="Διεύθυνση email">
+            </p>
+            <p>
+                <label>Κωδικός Πρόσβασης <b>*</b>:
+                    <br>
+                    <input class="input1" id="upassword" type="text" name="user_password" placeholder="Κωδικός Πρόσβασης">
+                </label>
+            </p>
+            <p>
+                <input class="button" type="submit" value="Εγγραφή">
+            </p>
+            <p>
+                <i>ή αλλιώς </i>
+            </p>
+            <p>
+                <a class="button" href='../login'>Σύνδεση</a>
+            </p>
+
+        </fieldset>
+    </form>
+</div>
+<!-- END PAGE CONTENT -->
+{{else}}
+<div class="createacc">
+    <h3>Δημιουργία λογαριασμού</h3>
+    <form class="form" action="../create-account" method="POST">
+        <fieldset>
+            <p>
+                <label>Ονοματεπώνυμο<b><b> *</b></b>:
+                    <br>
+                    <input class="input1" type="text" id="ufname" name="user_fname" placeholder="'Ονομα" value={{this.firstName}}>
+                </label>
+                <input class="input1" type="text" id="ulname" name="user_lname" placeholder="Επώνυμο" value={{this.lastName}}>
+            </p>
+
+            <p>
+                <label>Στοιχεία διεύθυνσης:
+                    <br>
+                    <input class="input1" id="uaddress" type="text" name="user_address" placeholder="Οδός και αριθμός" value={{this.address}}>
+                </label>
+                <input class="input1" id="ucity"type="text" name="user_city" placeholder="Πόλη" value={{this.city}}>
+                </br>
+                <input class="input1" id="upostcode" type="text" name="user_postcode" placeholder="Ταχυδρομικός Κώδικας" value={{this.postcode}}>
+            </p>
+
+            <p>
+                <label>Στοιχεία επικοινωνίας<b><b> *</b></b>:
+                    <br>
+                    <input class="input1" id="uphone" type="tel" name="user_phone" placeholder="Τηλέφωνο" value={{this.phone}}>
+                </label>
+                <input class="input1" id="uemail" type="email" name="user_email" placeholder="Διεύθυνση email" value={{this.email}}>
+            </p>
+            <p>
+                <label>Κωδικός Πρόσβασης <b>*</b>:
+                    <br>
+                    <input class="input1" id="upassword" type="text" name="user_password" placeholder="Κωδικός Πρόσβασης"  value={{this.user_password}}>
+                </label>
+            </p>
+            <p>
+                <input class="button" type="submit" value="Εγγραφή">
+            </p>
+            <p>
+                <i>ή αλλιώς </i>
+            </p>
+            <p>
+                <a class="button" href='../login'>Σύνδεση</a>
+            </p>
+
+        </fieldset>
+    </form>
+</div>
+<script>
+    alert("\n\n Ελλιπή Στοιχεία ή ο Χρήστης υπάρχει. \n Σιγουρευτείτε ότι τα πεδία με αστερίσκο (*) είναι συμπληρωμένα και \nπως ο κωδικός σας είναι τουλάχιστον 6 χαρακτήρες. \n\n ");
+</script>
+{{/if}}
